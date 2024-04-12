@@ -1,0 +1,19 @@
+meta {
+  name: Update person
+  type: http
+  seq: 6
+}
+
+put {
+  url: http://localhost:3001/api/persons/6618098c85123e330b9fe9b5
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "id": "6618098c85123e330b9fe9b5",
+      "name": "Matin Gutierrez",
+      "number": "88888888888"
+    }
+}
