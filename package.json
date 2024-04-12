@@ -11,7 +11,9 @@
   "author": "Dayron Furcain",
   "license": "MIT",
   "devDependencies": {
-    "nodemon": "^3.1.0"
+    "eslint": "^9.0.0",
+    "nodemon": "^3.1.0",
+    "standard": "^17.1.0"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -19,5 +21,8 @@
     "express": "^4.19.2",
     "mongoose": "^8.3.1",
     "morgan": "^1.10.0"
+  },
+  "eslintConfig": {
+    "extends":"standard"
   }
 }

@@ -2,7 +2,7 @@ const moongose = require('mongoose')
 
 if (process.argv.length < 3) {
   console.log(
-    'Please introduce password as argument. If you want add a new register introduce name and number as arguments too',
+    'Please introduce password as argument. If you want add a new register introduce name and number as arguments too'
   )
   process.exit(1)
 }
@@ -19,7 +19,7 @@ moongose.connect(url)
 
 const personSchema = new moongose.Schema({
   name: String,
-  number: String,
+  number: String
 })
 
 const Person = moongose.model('Person', personSchema)

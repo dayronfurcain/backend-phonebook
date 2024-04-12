@@ -5,12 +5,12 @@ const cors = require('cors')
 const app = express()
 const Person = require('./models/person')
 
-morgan.token('data', function (req, res) {
-  return JSON.stringify(req.body)
+morgan.token('data', function (request, response) {
+  return JSON.stringify(request.body)
 })
 
 app.use(
-  morgan(':method :url :status :res[content-length] - :response-time ms :data'),
+  morgan(':method :url :status :res[content-length] - :response-time ms :data')
 )
 
 app.use(cors())
@@ -40,7 +40,7 @@ app.get('/info', (request, response) => {
   response
     .send(
       `<p>Phonebook has info for ${Person.length}</p>
-      <p>${new Date()}</p>`,
+      <p>${new Date()}</p>`
     )
     .end()
 })
@@ -59,7 +59,7 @@ app.post('/api/persons', (request, response, next) => {
 
   const person = new Person({
     name: body.name,
-    number: body.number,
+    number: body.number
   })
 
   person
@@ -76,13 +76,13 @@ app.put('/api/persons/:id', (request, response, next) => {
 
   const person = {
     name: body.name,
-    number: body.number,
+    number: body.number
   }
 
   Person.findByIdAndUpdate(id, person, {
     new: true,
     runValidators: true,
-    context: 'query',
+    context: 'query'
   })
     .then((person) => {
       response.json(person)
